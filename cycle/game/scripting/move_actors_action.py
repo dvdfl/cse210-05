@@ -1,16 +1,16 @@
 from game.scripting.action import Action
 
 
-# TODO: Implement MoveActorsAction class here! 
+""" MoveActorsAction class helps update the position of the actors """
 class MoveActorsAction:
     def __init__(Action) -> None:
         pass
 
-# Override the execute(cast, script) method as follows:
+    # Override the execute(cast, script) method as follows:
     def execute(self,cast, script):
-# 1) get all the actors from the cast
+    # get all the actors from the cast
         actors  = cast.get_all_actors()
-# 2) loop through the actors
+        # loop through the actors
         for actor in actors:
+            #call the move_next() method on each actor
             actor.move_next()
-# 3) call the move_next() method on each actor

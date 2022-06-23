@@ -53,14 +53,6 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        # snake = cast.get_first_actor("snakes")
-        # head = snake.get_segments()[0]
-        # segments = snake.get_segments()[1:]
-        
-        # for segment in segments:
-        #     if head.get_position().equals(segment.get_position()):
-        #         self._is_game_over = True
-
         snakes = cast.get_actors("snakes")
         # checking self-collision
         for snake in snakes:
@@ -75,8 +67,6 @@ class HandleCollisionsAction(Action):
 
             for segment in snakeSegments1:
                 self._is_game_over = self._is_game_over or self._is_segment_collapsing_segments(segment, snakeSegments2)    
-
-            #self._is_game_over = self._is_segment_collapsing_segments(head1, snakeSegments2)
 
             if self._is_game_over:
                 for segment in snakeSegments2:
@@ -97,9 +87,6 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            # snake = cast.get_first_actor("snakes")
-            # segments = snake.get_segments()
-            #food = cast.get_first_actor("foods")
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -110,9 +97,6 @@ class HandleCollisionsAction(Action):
             message.set_position(position)
             cast.add_actor("messages", message)
 
-            # for segment in segments:
-            #     segment.set_color(constants.WHITE)
-            #food.set_color(constants.WHITE)
             for snake in cast.get_actors("snakes"):
                 # setting growing tail color
                 snake.set_color(constants.WHITE)
